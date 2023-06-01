@@ -71,7 +71,8 @@ class InstructorEmbeddings:
             model = self.model_xl
             tokenizer = self.tokenizer_xl
 
-        token_length = len(tokenizer(body.instruction + body.sentence)["input_ids"])
+        # Add 1 to account for the instruct/sentence separation token
+        token_length = len(tokenizer(body.instruction + body.sentence)["input_ids"]) + 1
         if token_length > 512:
             return Result(
                 status=(
