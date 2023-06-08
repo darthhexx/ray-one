@@ -35,7 +35,7 @@ class Result(BaseModel):
     result: List
 
 
-@serve.deployment(num_replicas=1, ray_actor_options={"num_cpus": 8, "num_gpus": 0.2})
+@serve.deployment(num_replicas=1, ray_actor_options={"num_cpus": 10, "num_gpus": 0})
 @serve.ingress(app)
 class InstructorEmbeddings:
     def __init__(self):
