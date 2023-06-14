@@ -47,9 +47,7 @@ class InstructorEmbeddings:
 
         self.tokenizer_base = AutoTokenizer.from_pretrained("hkunlp/instructor-base")
         if not DEV_MODE:
-            self.tokenizer_large = AutoTokenizer.from_pretrained(
-                "hkunlp/instructor-large"
-            )
+            self.tokenizer_large = AutoTokenizer.from_pretrained("hkunlp/instructor-large")
             self.tokenizer_xl = AutoTokenizer.from_pretrained("hkunlp/instructor-xl")
 
     # Note: This is always required for a serve model,

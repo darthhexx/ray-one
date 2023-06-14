@@ -4,9 +4,7 @@ from transformers import GenerationConfig, pipeline
 class Translator:
     def __init__(self):
         gen_config = GenerationConfig.from_pretrained("t5-small")
-        self.model = pipeline(
-            "translation_en_to_fr", model="t5-small", generation_config=gen_config
-        )
+        self.model = pipeline("translation_en_to_fr", model="t5-small", generation_config=gen_config)
 
     def translate(self, text: str) -> str:
         model_output = self.model(text)
