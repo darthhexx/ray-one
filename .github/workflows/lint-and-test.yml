@@ -26,7 +26,6 @@ jobs:
       uses: mamba-org/setup-micromamba@v1
       with:
         environment-name: test
-        environment-file: false
         create-args: >-
           python=3.10.8
           flake8
