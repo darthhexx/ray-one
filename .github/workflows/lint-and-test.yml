@@ -23,10 +23,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup environment
-      uses: mamba-org/provision-with-micromamba@main
+      uses: mamba-org/setup-micromamba@v1
       with:
         environment-name: test
-        extra-specs: |
+        environment-file: false
+        create-args: >-
           python=3.10.8
           flake8
           pytest
