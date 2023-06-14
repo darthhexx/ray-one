@@ -2,4 +2,4 @@ import pytest
 
 
 def test_dummy():
-    assert not False
+    assert not True
