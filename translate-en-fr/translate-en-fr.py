@@ -1,3 +1,4 @@
+import ray
 from transformers import GenerationConfig, pipeline
 
 
@@ -11,9 +12,12 @@ class Translator:
         return model_output[0]["translation_text"]
 
 
+ray.init()
+
 en_fr = Translator()
 french = en_fr.translate(
-    "The Linux kernel, at over 8 million lines of code and well over 1000 contributors to each release, is one of the largest and most active free software projects in existence."
+    "The Linux kernel, at over 8 million lines of code and well over 1000 contributors to each release, "
+    "is one of the largest and most active free software projects in existence."
 )
 
 print(f"\n{french}")

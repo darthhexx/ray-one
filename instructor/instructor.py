@@ -1,6 +1,5 @@
 from typing import List
 
-import numpy as np
 from fastapi import Body, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from InstructorEmbedding import INSTRUCTOR
@@ -84,7 +83,7 @@ class InstructorEmbeddings:
         return Result(status="ok", result=embeddings.tolist()[0])
 
     @app.post("/encode-batch")
-    def embeddings(self, body: BatchPayload = Body()) -> Result:
+    def embeddings_batch(self, body: BatchPayload = Body()) -> Result:
         if str(type(body.encode)) != "<class 'list'>":
             return Result(
                 status=(
